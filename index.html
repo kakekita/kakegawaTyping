@@ -4,6 +4,7 @@
 </head>
 <body>
 <canvas id="canvas"></canvas>
+    <input type="text" id="i1"><button onclick="draw()">draw!</button>
 <script>
     var canvas = document.getElementById("canvas");
     var ct = canvas.getContext("2d");
@@ -16,7 +17,31 @@
         ct.stroke();
     }
     
-    drawLine(10,50,50,10);
+    function draw() {
+        var v1 = parseInt(document.getElementById("i1").value);
+        var s = v1*180-360;
+        var a = s;
+        if(s => 180) {
+            var x1 = [25];
+            var y1 = [25];
+            var angle = [];
+            for(var i = 0;i < v1-1;i++) {
+                var max = a/v1+(a/v1/v1);
+                var min = a/v1-(a/v1/v1);
+                angle.push(Math.floor(Math.random() * (max + 1 - min)) + min);
+            }
+            angle.push(a);
+            for(var an in angle) {
+                var x2 = x1[an] + 20 * Math.cos( angle[an] * (Math.PI / 180) ) ;
+                var y2 = y1[an] + 20 * Math.sin( angle[an] * (Math.PI / 180) ) ;
+                x1.push(x2);
+                y1.push(y2);
+                drawLine(x1[an],y1[an],x1[an+1],y1[an+1]);
+            }
+        }
+        
+        return false;
+    }
 </script>
 <body>
 </html>
