@@ -1,4 +1,4 @@
-var mx = 750;
+var mx = 500;
 
 function setup() {
   createCanvas(800, 800);
