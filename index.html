@@ -1,47 +1,16 @@
-<!doctype html>
-<html>
-<head>
-</head>
-<body>
-<canvas id="canvas"></canvas>
-    <input type="text" id="i1"><button onclick="draw()">draw!</button>
-<script>
-    var canvas = document.getElementById("canvas");
-    var ct = canvas.getContext("2d");
-    function drawLine(x1,y1,x2,y2) {
-        ct.beginPath();
-        ct.moveTo(x1,y1);
-        ct.lineTo(x2,y2);
-        ct.strokeStyle = "black";
-        ct.lineWidth = 2;
-        ct.stroke();
-    }
-    
-    function draw() {
-        var v1 = parseInt(document.getElementById("i1").value);
-        var s = v1*180-360;
-        var a = s;
-        if(s => 180) {
-            var x1 = [25];
-            var y1 = [25];
-            var angle = [];
-            for(var i = 0;i < v1-1;i++) {
-                var max = a/v1+(a/v1/v1);
-                var min = a/v1-(a/v1/v1);
-                angle.push(Math.floor(Math.random() * (max + 1 - min)) + min);
-            }
-            angle.push(a);
-            for(var an in angle) {
-                var x2 = x1[an] + 20 * Math.cos( angle[an] * (Math.PI / 180) ) ;
-                var y2 = y1[an] + 20 * Math.sin( angle[an] * (Math.PI / 180) ) ;
-                x1.push(x2);
-                y1.push(y2);
-                drawLine(x1[an],y1[an],x1[an+1],y1[an+1]);
-            }
-        }
-        
-        return false;
-    }
-</script>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+      <h2 id="title"></h2>
+    </main>
+    <script src="sketch.js"></script>
+  </body>
 </html>
